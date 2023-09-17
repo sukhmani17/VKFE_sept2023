@@ -677,7 +677,6 @@ view: ppp_ppx_pps_final_29_jan2023_v3_url {
   measure: Number_of_Employees {
     label: "Number of Employees"
     type: sum
-    value_format_name: usd_0
     precision: 0
     sql: ${number_of_employees} ;;
   }
