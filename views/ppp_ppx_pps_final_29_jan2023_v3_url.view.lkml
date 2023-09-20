@@ -771,4 +771,10 @@ view: ppp_ppx_pps_final_29_jan2023_v3_url {
     sql: ${vkfe_2020_total} + ${vkfe_q1_2021_positive} + ${vkfe_q2_2021_grant_correction_rule4};;
   }
 
+  measure: VKFE_Hi_avg {
+    label: "VKFE Hi ($) (Average)"
+    type: average
+    sql: ${vkfe_2020_total} + ${vkfe_q1_2021_positive} + ${vkfe_q2_2021_grant_correction_rule4};;
+  }
+
 }

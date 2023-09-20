@@ -15,3 +15,5 @@ datagroup: vkfe_sept2023_default_datagroup {
 persist_with: vkfe_sept2023_default_datagroup
 
 explore: ppp_ppx_pps_final_29_jan2023_v3_url {}
+
+explore: vkfe_asset_size_fte_v4 {}

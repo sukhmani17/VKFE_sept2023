@@ -711,5 +711,158 @@ view: vkfe_asset_size_fte_v4 {
   measure: count {
     type: count
     drill_fields: [project_county_name, borrower_name, franchise_name, servicing_lender_name]
+
+}
+
+  measure: VKFE_Hi {
+    label: "VKFE Hi ($)"
+    type: sum
+    sql: (${vkfe_2020_total} + ${vkfe_q1_2021_positive} + ${vkfe_q2_2021_grant_correction_rule4});;
   }
+
+  measure: VKFE_Hi_avg {
+    label: "VKFE Hi ($) (Average)"
+    type: average
+    sql: ${vkfe_2020_total} + ${vkfe_q1_2021_positive} + ${vkfe_q2_2021_grant_correction_rule4};;
+  }
+
+  measure: PotentialBankDeposits20ofSum {
+    label: "Potential Bank Deposits (20% of Sum)"
+    type: sum
+    sql: 0.2*( ${vkfe_2020_total} + ${vkfe_q1_2021_positive} + ${vkfe_q2_2021_grant_correction_rule4});;
+  }
+
+  measure: VKFEMax {
+    label: "VKFE Max ($)"
+    type: max
+    sql: ${as_vkfe_max_int} ;;
+  }
+  measure: VKFEMin {
+    label: "VKFE Min ($)"
+    type: max
+    sql: ${as_vkfe_min_int} ;;
+  }
+
+  measure: AssetSizeQ12021_v2 {
+    label: "Asset Size Q12021"
+    type: max
+    sql: ${asset_size_q12021_int} ;;
+  }
+  measure: FTEQ12021_v2 {
+    label: "FTE Q12021"
+    type: max
+    sql: ${fte_q12021_int} ;;
+  }
+  measure: VKFE_total_sum {
+    label: "VKFE Total"
+    type: sum
+    precision: 0
+    value_format_name: usd_0
+    sql: ${vkfe_total} ;;
+  }
+  dimension: amount_bucket {
+    case: {
+      when: {
+        sql: ${TABLE}.VKFE_total > 0 and ${TABLE}.VKFE_total  <= 50000  ;;
+        label: "1. $0 to $50,000"
+      }
+      when: {
+        sql:  ${TABLE}.VKFE_total > 50000  and ${TABLE}.VKFE_total  <= 100000 ;;
+        label: "2. $50,001 to $100,000"
+      }
+      when: {
+        sql: ${TABLE}.VKFE_total > 100000  and ${TABLE}.VKFE_total  <= 200000 ;;
+        label: "3. $100,001 to $200,000"
+      }
+      when: {
+        sql: ${TABLE}.VKFE_total > 200000   and ${TABLE}.VKFE_total  <= 500000 ;;
+        label: "4. $200,001 to $500,000"
+      }
+      when: {
+        sql: ${TABLE}.VKFE_total > 500000  and ${TABLE}.VKFE_total  <= 800000 ;;
+        label: "5. 500,001 to $800,000"
+      }
+      when: {
+        sql: ${TABLE}.VKFE_total > 800000  and ${TABLE}.VKFE_total  <= 1000000 ;;
+        label: "6. $800,001 to $1M"
+      }
+      else: "7. Greater than $1M"
+    } }
+
+    measure: VKFE_2020 {
+      label: "VKFE 2020"
+      type: sum
+      value_format_name: usd_0
+      precision: 0
+      sql: ${vkfe_2020_total} ;;
+    }
+    measure: VKFE_2021 {
+      label: "VKFE 2021"
+      type: sum
+      value_format_name: usd_0
+      precision: 0
+      sql: ${vkfe_2021_total} ;;
+    }
+    measure: Number_of_Employees {
+      label: "Number of Employees"
+      type: sum
+      precision: 0
+      sql: ${number_of_employees} ;;
+    }
+    measure: VKFEQ12020  {
+      label: "VKFE Q1 2020"
+      type: sum
+      value_format_name: usd_0
+      precision: 0
+      sql: ${erc1_estimate_q12020_rule1_2_positve} ;;
+    }
+    measure: VKFEQ22020  {
+      label: "VKFE Q2 2020"
+      type: sum
+      value_format_name: usd_0
+      precision: 0
+      sql: ${erc1_estimate_q22020_rule2_positve};;
+    }
+    measure: VKFEQ32020  {
+      label: "VKFE Q3 2020"
+      type: sum
+      value_format_name: usd_0
+      precision: 0
+      sql: ${erc1_estimate_q32020_rule2_positve};;
+    }
+    measure: VKFEQ42020  {
+      label: "VKFE Q4 2020"
+      type: sum
+      value_format_name: usd_0
+      precision: 0
+      sql: ${erc1_estimate_q42020_rule2_positve};;
+    }
+    measure: VKFEQ12021  {
+      label: "VKFE Q1 2021"
+      type: sum
+      value_format_name: usd_0
+      precision: 0
+      sql: ${vkfe_q1_2021_positive};;
+    }
+    measure: VKFEQ22021  {
+      label: "VKFE Q2 2021"
+      type: sum
+      value_format_name: usd_0
+      precision: 0
+      sql: ${vkfe_q2_2021_grant_correction_rule4};;
+    }
+    measure: VKFEQ32021  {
+      label: "VKFE Q3 2021"
+      type: sum
+      value_format_name: usd_0
+      precision: 0
+      sql: ${vkfe_q3_2021_rule3_positive};;
+    }
+
+  dimension: naicscode2 {
+    type: string
+    sql: ${TABLE}.NAICS_US_Code2017 ;;
+  }
+
+
 }
