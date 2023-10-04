@@ -70,7 +70,10 @@ view: ppp_ppx_pps_final_29_jan2023_v3_url {
     type: string
     sql: ${TABLE}.BorrowerZip ;;
   }
-
+  dimension: borrower_zip2 {
+    type: zipcode
+    sql: ${TABLE}.BorrowerZip ;;
+  }
   dimension: business_age_description {
     type: string
     sql: ${TABLE}.BusinessAgeDescription ;;

@@ -100,6 +100,10 @@ view: vkfe_asset_size_fte_v4 {
     type: string
     sql: ${TABLE}.BorrowerZip ;;
   }
+  dimension: borrower_zip2 {
+    type: zipcode
+    sql: ${TABLE}.BorrowerZip ;;
+  }
 
   dimension: business_age_description {
     type: string
