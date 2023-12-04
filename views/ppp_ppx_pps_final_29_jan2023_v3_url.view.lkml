@@ -872,8 +872,10 @@ view: ppp_ppx_pps_final_29_jan2023_v3_url {
     sql: ${url} ;;
     link: {
       label: "URL"
-      url: "http://ventokredit.com?q={{ value }}"
-    }
+      #url: "http://ventokredit.com?q={{ value }}"
+      url : "{{ url }}"
+      #url:"https://www.ventokredit.com/estimator/?cd0"
+      }
   }
 
 }
