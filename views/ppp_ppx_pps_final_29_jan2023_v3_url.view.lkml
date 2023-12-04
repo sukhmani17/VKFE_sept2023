@@ -780,4 +780,82 @@ view: ppp_ppx_pps_final_29_jan2023_v3_url {
     sql: ${vkfe_2020_total} + ${vkfe_q1_2021_positive} + ${vkfe_q2_2021_grant_correction_rule4};;
   }
 
+  measure: VKFEQ12020_per_employee  {
+    label: "VKFE Q1 2020 per employee"
+    type: sum
+    value_format_name: usd_0
+    precision: 0
+    sql: ${erc1_estimate_q12020_per_employee} ;;
+  }
+
+  measure: VKFEQ22020_per_employee  {
+    label: "VKFE Q2 2020 per employee"
+    type: sum
+    value_format_name: usd_0
+    precision: 0
+    sql: ${erc1_estimate_q22020_per_employee} ;;
+  }
+  measure: VKFEQ32020_per_employee  {
+    label: "VKFE Q3 2020 per employee"
+    type: sum
+    value_format_name: usd_0
+    precision: 0
+    sql: ${erc1_estimate_q32020_per_employee} ;;
+  }
+
+  measure: VKFEQ42020_per_employee  {
+    label: "VKFE Q4 2020 per employee"
+    type: sum
+    value_format_name: usd_0
+    precision: 0
+    sql: ${erc1_estimate_q42020_per_employee} ;;
+  }
+
+  measure: VKFE2020_per_employee  {
+    label: "VKFE 2020 per employee"
+    type: sum
+    value_format_name: usd_0
+    precision: 0
+    sql: ${vkfe_2020_total_per_employee} ;;
+  }
+
+  measure: VKFEQ12021_per_employee  {
+    label: "VKFE Q1 2021 per employee"
+    type: sum
+    value_format_name: usd_0
+    precision: 0
+    sql: ${vkfe_q1_2021_per_employee} ;;
+  }
+
+  measure: VKFEQ22021_per_employee  {
+    label: "VKFE Q2 2021 per employee"
+    type: sum
+    value_format_name: usd_0
+    precision: 0
+    sql: ${vkfe_q2_2021_per_employee};;
+  }
+
+  measure: VKFEQ32021_per_employee  {
+    label: "VKFE Q3 2021 per employee"
+    type: sum
+    value_format_name: usd_0
+    precision: 0
+    sql: ${vkfe_q3_2021_per_employee};;
+  }
+
+  measure: VKFE2021_per_employee  {
+    label: "VKFE 2021 per employee"
+    type: sum
+    value_format_name: usd_0
+    precision: 0
+    sql: ${vkfe_2021_total_per_employee};;
+  }
+  measure: VKFEtotal_per_employee  {
+    label: "VKFE Total per employee"
+    type: sum
+    value_format_name: usd_0
+    precision: 0
+    sql: ${vkfe_total_by_estimated_number_of_employees};;
+  }
+
 }
