@@ -66,6 +66,13 @@ view: ppp_ppx_pps_final_29_jan2023_v3_url {
     sql: ${TABLE}.BorrowerState ;;
   }
 
+  dimension: borrower_state2 {
+    label: "Borrower State"
+    type: string
+    map_layer_name: us_states
+    sql: ${TABLE}.BorrowerState ;;
+  }
+
   dimension: borrower_zip {
     type: string
     sql: ${TABLE}.BorrowerZip ;;
