@@ -535,6 +535,7 @@ view: ppp_ppx_pps_final_29_jan2023_v3_url {
   }
 
   dimension: url {
+    label: "url1"
     type: string
     sql: ${TABLE}.url ;;
   }
@@ -863,6 +864,16 @@ view: ppp_ppx_pps_final_29_jan2023_v3_url {
     value_format_name: usd_0
     precision: 0
     sql: ${vkfe_total_by_estimated_number_of_employees};;
+  }
+
+  dimension: url2 {
+    label: "URL"
+    type: string
+    sql: ${url} ;;
+    link: {
+      label: "URL"
+      url: "http://ventokredit.com?q={{ value }}"
+    }
   }
 
 }
