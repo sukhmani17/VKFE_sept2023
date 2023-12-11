@@ -877,5 +877,99 @@ view: ppp_ppx_pps_final_29_jan2023_v3_url {
       #url:"https://www.ventokredit.com/estimator/?cd0"
       }
   }
+  measure: VKFEQ12020_per_employee_updated  {
+    label: "VKFE Q1 2020 per employee_updated"
+    type: sum
+    value_format_name: usd_0
+    precision: 0
+    sql: ${erc1_estimate_q12020_per_employee}*0.5 ;;
+  }
+
+  measure: VKFEQ22020_per_employee_updated  {
+    label: "VKFE Q2 2020 per employee_updated"
+    type: sum
+    value_format_name: usd_0
+    precision: 0
+    sql: ${erc1_estimate_q22020_per_employee}*0.5 ;;
+  }
+  measure: VKFEQ32020_per_employee_updated  {
+    label: "VKFE Q3 2020 per employee_updated"
+    type: sum
+    value_format_name: usd_0
+    precision: 0
+    sql: ${erc1_estimate_q32020_per_employee}*0.5 ;;
+  }
+
+  measure: VKFEQ42020_per_employee_updated  {
+    label: "VKFE Q4 2020 per employee_updated"
+    type: sum
+    value_format_name: usd_0
+    precision: 0
+    sql: ${erc1_estimate_q42020_per_employee}*0.5 ;;
+  }
+
+  measure: VKFE2020_per_employee_updated  {
+    label: "VKFE 2020 per employee_updated"
+    type: sum
+    value_format_name: usd_0
+    precision: 0
+    sql: ${vkfe_2020_total_per_employee}*0.5 ;;
+  }
+
+  measure: VKFEQ12021_per_employee_updated  {
+    label: "VKFE Q1 2021 per employee_updated"
+    type: sum
+    value_format_name: usd_0
+    precision: 0
+    sql: ${vkfe_q1_2021_per_employee}*0.5 ;;
+  }
+
+  measure: VKFEQ22021_per_employee_updated  {
+    label: "VKFE Q2 2021 per employee_updated"
+    type: sum
+    value_format_name: usd_0
+    precision: 0
+    sql: ${vkfe_q2_2021_per_employee}*0.5;;
+  }
+
+  measure: VKFEQ32021_per_employee_updated  {
+    label: "VKFE Q3 2021 per employee_updated"
+    type: sum
+    value_format_name: usd_0
+    precision: 0
+    sql: ${vkfe_q3_2021_per_employee}*0.5;;
+  }
+
+  measure: VKFE2021_per_employee_updated  {
+    label: "VKFE 2021 per employee_updated"
+    type: sum
+    value_format_name: usd_0
+    precision: 0
+    sql: ${vkfe_2021_total_per_employee}*0.5;;
+  }
+  measure: VKFEtotal_per_employee_updated  {
+    label: "VKFE Total per employee_updated"
+    type: sum
+    value_format_name: usd_0
+    precision: 0
+    sql: ${vkfe_total_by_estimated_number_of_employees}*0.5;;
+  }
+measure: estimated_number_of_employees_updated {
+  label: "Estimated Number of Employees_updated"
+  type: sum
+  precision: 0
+  sql: ${estimated_number_of_employees}*0.5 ;;
+}
+
+  measure: VKFE_Lo_Updated {
+    label: "VKFE Lo ($) Updated"
+    type: number
+    sql:
+    CASE WHEN ${jobs_reported} < 5 THEN ${VKFE_2020}*0
+
+    else   ${VKFE_2020}
+    END;;
+  }
+
 
 }
