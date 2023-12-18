@@ -665,7 +665,7 @@ view: ppp_ppx_pps_final_29_jan2023_v3_url {
   }
 
   measure: VKFE_total_sum {
-    label: "VKFE Total"
+    label: "VKFE Total1"
     type: sum
     precision: 0
     value_format_name: usd_0
@@ -969,7 +969,15 @@ measure: estimated_number_of_employees_updated {
 
     else   ${VKFE_2020}
     END;;
+
   }
 
+measure: vkfe_total2 {
+  type: sum
+  sql: ${vkfe_2020_total}+${vkfe_2021_total} ;;
+}
 
+#1) Changes apply only for PPP employees less than 50.
+#/2) Reduce the number of employees by 50% in estimating VKFE by quarter
+#/3) Reduce average salary per employee by 50%
 }
